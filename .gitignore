@@ -1,0 +1,7 @@
+.DS_Store
+.Xoverrides
+.bash_local
+.zsh_local
+nvim/plugin
+packer_compiled.lua
+.envrc
