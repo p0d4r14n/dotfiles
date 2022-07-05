@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "--- Homebrew Packages ---"
 if hash brew 2>/dev/null; then
 	echo "brew already installed."
 else
@@ -29,6 +30,7 @@ fi
 
 # install zls
 # zls https://github.com/zigtools/zls
+echo "--- ZLS ---"
 if hash zls 2>/dev/null; then
 	echo "zls already installed."
 else
@@ -38,9 +40,30 @@ fi
 
 # install rust
 # rust https://github.com/rust-lang/rust
+echo "--- Rustup ---"
 if hash rustup 2>/dev/null; then
 	echo "rustup already installed."
 else
 	echo "No rustup found, installing rustup"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
+
+# --- Update Config Files ---
+echo "--- Config Files ---"
+PROJECT_DIR=`dirname $0`
+# Update zsh config
+echo "Do you want to update zsh config? [Y/n]"
+read UPDATE_ZSH
+if [[ $UPDATE_ZSH =~ [^nN] ]] || [[ -z $UPDATE_ZSH ]]; then
+	cp $PROJECT_DIR/zsh/.zshrc $HOME/
+	echo "Copied $PROJECT_DIR/zsh/.zshrc to $HOME/"
+fi
+# Update nvim config
+echo "Do you want to update nvim config? [Y/n]"
+read UPDATE_NVIM
+if [[ $UPDATE_NVIM =~ [^nN] ]] || [[ -z $UPDATE_NVIM ]]; then
+	rm -rf $HOME/.config/nvim
+	cp -R $PROJECT_DIR/nvim $HOME/.config/
+	echo "Copied $PROJECT_DIR/nvim to $HOME/.config"
+fi
+
