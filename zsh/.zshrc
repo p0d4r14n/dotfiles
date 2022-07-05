@@ -3,29 +3,31 @@ alias l="ls -Glisa"
 alias ls="ls -G"
 alias reload="source ~/.zshrc"
 alias zshrc="nvim ~/.zshrc"
-alias nvimconfig="nvim ~/.config/nvim/"
+alias nvimc="nvim ~/.config/nvim/"
 
 # --- Useful options ---
-setopt autocd extendedglob nomatch menucomplete
+setopt autocd extendedglob nomatch menucomplete correct
 setopt interactive_comments
 
 # Colors
 autoload -Uz colors && colors
 
 # --- Completion ---
-# ZSH completion
-autoload -Uz compinit
-compinit
-# Colorize completions using default `ls` colors.
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# Zsh reverse auto-completion
-zmodload zsh/complist
+# Use colors
+zstyle ':completion:*:default' list-colors \
+  "di=1;36" "ln=35" "so=32" "pi=33" "ex=31" "bd=34;46" "cd=34;43" \
+  "su=30;41" "sg=30;46" "tw=30;42" "ow=30;43"
 # To get new binaries into PATH
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' file-sort date
 zstyle ':completion:*' menu yes=long select
 # Disable prompt disappearing on multi-lines
 export COMPLETION_WAITING_DOTS="false"
+# ZSH completion
+autoload -Uz compinit
+compinit
+# Zsh reverse auto-completion
+zmodload zsh/complist
 
 # --- No beep ---
 unsetopt BEEP

@@ -1,0 +1,10 @@
+theme = "everforest_dark"
+
+[editor]
+line-number = "relative"
+auto-pairs = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"

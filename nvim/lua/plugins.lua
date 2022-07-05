@@ -30,6 +30,7 @@ packer.init({
 
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim" })
+	use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 	if packer_bootstrap then
 		packer.sync()
 	end
