@@ -33,7 +33,7 @@ fi
 # gitui https://github.com/Extrawurst/gitui
 # node https://github.com/nodejs/node
 # rustup https://github.com/rust-lang/rustup
-/opt/homebrew/bin/brew install git helix tmux gitui node rust-analyzer neovim
+/opt/homebrew/bin/brew install git helix tmux gitui node rust-analyzer neovim ripgrep
 
 # install node neovim
 /opt/homebrew/bin/npm install -g neovim
