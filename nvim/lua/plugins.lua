@@ -32,7 +32,7 @@ packer.startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 	use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 	use({ "L3MON4D3/LuaSnip" })
-	use({ 'saadparwaiz1/cmp_luasnip' })
+	use({ "saadparwaiz1/cmp_luasnip" })
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -50,6 +50,11 @@ packer.startup(function(use)
 	use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 	use { "nvim-telescope/telescope-file-browser.nvim" }
 	use { "kyazdani42/nvim-web-devicons" }
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = get_config("catppuccin"),
+	})
 	if packer_bootstrap then
 		packer.sync()
 	end
