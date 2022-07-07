@@ -31,9 +31,20 @@ packer.init({
 packer.startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 	use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
+	use({ "L3MON4D3/LuaSnip" })
+	use({ 'saadparwaiz1/cmp_luasnip' })
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+		},
+		config = get_config("cmp"),
+	})
 	use {
 	  "nvim-telescope/telescope.nvim",
-	  requires = { {"nvim-lua/plenary.nvim"} },
+	  requires = { { "nvim-lua/plenary.nvim" } },
 	  config = get_config("telescope"),
 	}
 	use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }

@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local map = vim.keymap
-
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -33,4 +33,5 @@ nvim_lsp.rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {}
 	},
+	capabilities = capabilities,
 })

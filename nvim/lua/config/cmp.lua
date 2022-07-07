@@ -1,17 +1,19 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 cmp.setup({
 	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end
-	},
+      expand = function(args)
+        luasnip.lsp_expand(args.body)
+      end,
+    },
 	mapping = {
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-u>"] = cmp.mapping.scroll_docs(4),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-e>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
+		["<C-q>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
@@ -32,7 +34,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "buffer" },
 		{ name = "luasnip" },
+		{ name = "buffer" },
 	},
 })
