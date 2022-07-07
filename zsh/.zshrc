@@ -51,3 +51,10 @@ zstyle ':vcs_info:*' stagedstr ' +'
 # Set the format of the Git information for vcs_info
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+
+# Show folder in tab title
+DISABLE_AUTO_TITLE="true"
+function precmd() {
+	window_title="\033]0;${PWD##*/}\007"
+	echo -ne "$window_title"
+}
