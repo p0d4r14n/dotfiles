@@ -69,6 +69,7 @@ if [[ $UPDATE_ZSH =~ [^nN] ]] || [[ -z $UPDATE_ZSH ]]; then
 	cp $SCRIPTDIR/zsh/.zshrc $HOME/
 	echo "Copied $SCRIPTDIR/zsh/.zshrc to $HOME/"
 fi
+
 # Update nvim config
 echo "Do you want to update nvim config? [Y/n]"
 read UPDATE_NVIM
@@ -78,3 +79,11 @@ if [[ $UPDATE_NVIM =~ [^nN] ]] || [[ -z $UPDATE_NVIM ]]; then
 	echo "Copied $SCRIPTDIR/nvim to $HOME/.config"
 fi
 
+# Update helix config
+echo "Do you want to update helix config? [Y/n]"
+read UPDATE_HELIX
+if [[ $UPDATE_HELIX =~ [^nN] ]] || [[ -z $UPDATE_HELIX ]]; then
+	rm -rf $HOME/.config/helix
+	cp -R $SCRIPTDIR/helix $HOME/.config/
+	echo "Copied $SCRIPTDIR/helix to $HOME/.config"
+fi
