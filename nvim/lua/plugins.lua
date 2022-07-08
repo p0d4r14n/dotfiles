@@ -42,14 +42,18 @@ packer.startup(function(use)
 		},
 		config = get_config("cmp"),
 	})
-	use {
+	use({
 	  "nvim-telescope/telescope.nvim",
 	  requires = { { "nvim-lua/plenary.nvim" } },
 	  config = get_config("telescope"),
-	}
-	use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-	use { "nvim-telescope/telescope-file-browser.nvim" }
-	use { "kyazdani42/nvim-web-devicons" }
+	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "kyazdani42/nvim-web-devicons" })
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		config = get_config("treesitter"),
+	})
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",

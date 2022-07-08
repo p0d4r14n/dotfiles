@@ -58,3 +58,5 @@ function precmd() {
 	window_title="\033]0;${PWD##*/}\007"
 	echo -ne "$window_title"
 }
+
+export PATH="${HOME}/zls/zig-out/bin:${PATH}"

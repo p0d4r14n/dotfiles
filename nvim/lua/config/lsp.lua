@@ -30,8 +30,23 @@ local lsp_flags = {
 nvim_lsp.rust_analyzer.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
+	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {}
 	},
+})
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
+})
+nvim_lsp.zls.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
+})
+nvim_lsp.gopls.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
 	capabilities = capabilities,
 })

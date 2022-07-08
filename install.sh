@@ -23,20 +23,23 @@ fi
 # add helix editor to brew
 /opt/homebrew/bin/brew tap helix-editor/helix
 
-# install zig
-# zig https://github.com/ziglang/zig
-/opt/homebrew/bin/brew install zig
+# zig master https://github.com/ziglang/zig
+/opt/homebrew/bin/brew install zig --HEAD
 
 # git https://git-scm.com
-# helix https://github.com/helix-editor/helix
-# tmux https://github.com/tmux/tmux/wiki
 # gitui https://github.com/Extrawurst/gitui
+# go https://github.com/golang/go
+# gopls https://github.com/golang/tools/tree/master/gopls
+# helix https://github.com/helix-editor/helix
+# neovim https://github.com/neovim/neovim
 # node https://github.com/nodejs/node
-# rustup https://github.com/rust-lang/rustup
-/opt/homebrew/bin/brew install git helix tmux gitui node rust-analyzer neovim ripgrep
+# ripgrep https://github.com/BurntSushi/ripgrep
+# rust-analyzer https://github.com/rust-lang/rust-analyzer
+# tmux https://github.com/tmux/tmux/wiki
+/opt/homebrew/bin/brew install git gitui go gopls helix neovim node ripgrep rust-analyzer tmux
 
-# install node neovim
-/opt/homebrew/bin/npm install -g neovim
+# install node neovim and typescript dependencies
+/opt/homebrew/bin/npm install -g neovim typescript typescript-language-server eslint prettier
 
 # install zls
 # zls https://github.com/zigtools/zls
@@ -46,7 +49,11 @@ if hash zls 2>/dev/null; then
 else
 	echo "No zls found, installing Zig Language Server."
 	rm -rf $HOME/zls
-	mkdir $HOME/zls && cd $HOME/zls && curl -L https://github.com/zigtools/zls/releases/download/0.9.0/x86_64-macos.tar.xz | tar -xJ --strip-components=1 -C .
+	/opt/homebrew/bin/git clone --recurse-submodules https://github.com/zigtools/zls $HOME/zls
+	cd $HOME/zls
+	/opt/homebrew/bin/zig build -Drelease-safe
+	./zig-out/bin/zls config
+	cd $WDIR
 fi
 
 # install rust

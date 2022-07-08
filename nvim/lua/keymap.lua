@@ -14,7 +14,7 @@ map.set("n", "<Leader>dl", diagnostic.setloclist, opts)
 
 -- Telescope
 map.set("n", "<Leader>dg", "<Cmd>Telescope diagnostics<CR>", opts)
-map.set("n", "<Leader>ff", "<Cmd>Telescope find_files<CR>", opts)
+map.set("n", "<Leader>ff", "<Cmd>Telescope find_files hidden=true<CR>", opts)
 map.set("n", "<Leader>gf", "<Cmd>Telescope git_files<CR>", opts)
 map.set("n", "<Leader>lg", "<Cmd>Telescope live_grep<CR>", opts)
 map.set("n", "<Leader>fb", "<Cmd>Telescope file_browser<CR>", opts)
