@@ -3,11 +3,14 @@ local diagnostic = vim.diagnostic
 
 local opts = { noremap = true, silent = true }
 
+-- Basics
+map.set({ "n", "i", "v" }, "<C-s>", "<Cmd>w<CR>", opts)
+
 -- Diagnostics
-map.set("n", "<space>do", diagnostic.open_float, opts)
-map.set("n", "<space>dp", diagnostic.goto_prev, opts)
-map.set("n", "<space>dn", diagnostic.goto_next, opts)
-map.set("n", "<space>dl", diagnostic.setloclist, opts)
+map.set("n", "<Leader>do", diagnostic.open_float, opts)
+map.set("n", "<Leader>dp", diagnostic.goto_prev, opts)
+map.set("n", "<Leader>dn", diagnostic.goto_next, opts)
+map.set("n", "<Leader>dl", diagnostic.setloclist, opts)
 
 -- Telescope
 map.set("n", "<Leader>dg", "<Cmd>Telescope diagnostics<CR>", opts)
