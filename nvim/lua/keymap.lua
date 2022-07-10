@@ -4,7 +4,7 @@ local diagnostic = vim.diagnostic
 local opts = { noremap = true, silent = true }
 
 -- Basics
-map.set({ "n", "i", "v" }, "<C-s>", "<Cmd>w<CR>", opts)
+map.set({ "n", "i", "v" }, "<C-s>", "<Cmd>:lua vim.lsp.buf.formatting_sync()<CR><Cmd>w<CR>", opts)
 
 -- Diagnostics
 map.set("n", "<Leader>do", diagnostic.open_float, opts)
