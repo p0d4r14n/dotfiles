@@ -66,6 +66,14 @@ else
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
+echo "--- wasm-pack ---"
+if hash wasm-pack 2>/dev/null; then
+	echo "wasm-pack already installed."
+else
+	echo "No wasm-pack found, installing wasm-pack"
+	curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+fi
+
 # --- Update Config Files ---
 echo "--- Config Files ---"
 
