@@ -55,3 +55,8 @@ nvim_lsp.denols.setup({
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
+nvim_lsp.wgsl_analyzer.setup({
+	on_attach = on_attach,
+	flags = lsp_flags,
+	capabilities = capabilities,
+})

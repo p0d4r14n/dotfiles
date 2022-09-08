@@ -74,6 +74,14 @@ else
 	curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 fi
 
+echo "--- wgsl_analyzer ---"
+if hash wgsl_analyzer 2>/dev/null; then
+	echo "wgsl_analyzer already installed."
+else
+	echo "wgsl_analyzer not found, installing wgsl_analyzer"
+	cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer
+fi
+
 # --- Update Config Files ---
 echo "--- Config Files ---"
 
